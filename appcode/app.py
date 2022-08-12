@@ -11,9 +11,11 @@ DB_Database = os.environ.get('DB_Database') or "mysql"
 DB_User = os.environ.get('DB_User') or "root"
 DB_Password = os.environ.get('DB_Password') or "paswrd"
 My_name = os.environ.get('MYNAME')
-My_file = open("/clo835/config/image_url", "r")
-image_url = My_file.read()
-print("Background image url is ", image_url)
+if os.path.exists('/clo835/config/image_url'):
+ My_file = open("/clo835/config/image_url", "r")
+ image_url = My_file.read()
+ print("Background image url is ",image_url)
+    
 @app.route("/")
 def main():
     db_connect_result = False
@@ -25,9 +27,8 @@ def main():
     except Exception as e:
         color = '#ff3f3f'
         err_message = str(e)
-
+    
     return render_template('hello.html', debug="Environment Variables: DB_Host=" + (os.environ.get('DB_Host') or "Not Set") + "; DB_Database=" + (os.environ.get('DB_Database')  or "Not Set") + "; DB_User=" + (os.environ.get('DB_User')  or "Not Set") + "; DB_Password=" + (os.environ.get('DB_Password')  or "Not Set") + "; " + err_message, db_connect_result=db_connect_result, name=socket.gethostname(), color=color, My_name=My_name, image_url=image_url)
-
 @app.route("/debug")
 def debug():
     color = '#2196f3'

@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: flaskapp
-        image: 507186026030.dkr.ecr.us-east-1.amazonaws.com/clo835final:v1.7
+        image: 507186026030.dkr.ecr.us-east-1.amazonaws.com/clo835final:v1.12
         ports:
         - containerPort: 81
         volumeMounts:
