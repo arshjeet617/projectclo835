@@ -16,17 +16,31 @@ spec:
     spec:
       containers:
       - name: flaskapp
-        image: 507186026030.dkr.ecr.us-east-1.amazonaws.com/clo835final:v1.1
+        image: 507186026030.dkr.ecr.us-east-1.amazonaws.com/clo835final:v1.7
         ports:
         - containerPort: 81
         volumeMounts:
           - name: app-secret-volumes
             mountPath: "/opt/app-secret-volumes"
             readOnly: true
+          - name: image-volume
+            mountPath: "/clo835/config"
         envFrom:
           - secretRef:
               name: mysql-secrets
+        env:
+          - name: MYNAME
+            valueFrom:
+              configMapKeyRef: 
+                name: webapp-config
+                key:  myname
       volumes:
         - name: app-secret-volumes
           secret:
             secretName: mysql-secrets
+        - name: image-volume
+          configMap:
+            name: webapp-config
+            items:
+            - key: image_url
+              path: image_url

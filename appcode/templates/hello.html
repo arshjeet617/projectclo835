@@ -5,12 +5,12 @@
     text-align:  center;
     height: 90px;
     vertical-align:  middle;">
-
+<h1> My name is {{ My_name }}</h1>
   {% if db_connect_result %}
-    <img src="{{ url_for('static', filename='img/success.jpg') }}">
+    <img src="{{ image_url }}">
     <h3> Successfully connected to the MySQL database.</h3>
   {% else %}
-    <img src="{{ url_for('static', filename='img/failed.png') }}">
+    <img src="{{ image_url }}">
     <h3> Failed connecting to the MySQL database. </h3>
   {% endif %}
 
