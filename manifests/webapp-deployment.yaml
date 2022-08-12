@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: flaskapp
+  labels:
+    name: flaskapp
+spec:
+  selector:
+    matchLabels:
+      name: flaskapp
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        name: flaskapp
+    spec:
+      containers:
+      - name: flaskapp
+        image: 507186026030.dkr.ecr.us-east-1.amazonaws.com/clo835final:v1.1
+        ports:
+        - containerPort: 81
+        volumeMounts:
+          - name: app-secret-volumes
+            mountPath: "/opt/app-secret-volumes"
+            readOnly: true
+        envFrom:
+          - secretRef:
+              name: mysql-secrets
+      volumes:
+        - name: app-secret-volumes
+          secret:
+            secretName: mysql-secrets
