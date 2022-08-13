@@ -3,5 +3,5 @@ kind: ConfigMap
 metadata:
     name: webapp-config
 data: 
-    myname: Arshjeet
-    
+    myname: final project Arshjeet, Vidhi and Bibake
+    image_url: https://clo835projects.s3.amazonaws.com/mysql.png
