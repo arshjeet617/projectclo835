@@ -4,4 +4,4 @@ metadata:
     name: webapp-config
 data: 
     myname: Arshjeet
-    image_url: https://clo835projects.s3.amazonaws.com/mysql.png
+    
