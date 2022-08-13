@@ -11,6 +11,7 @@ DB_Database = os.environ.get('DB_Database') or "mysql"
 DB_User = os.environ.get('DB_User') or "root"
 DB_Password = os.environ.get('DB_Password') or "paswrd"
 My_name = os.environ.get('MYNAME')
+image_url = " "
 if os.path.exists('/clo835/config/image_url'):
  My_file = open("/clo835/config/image_url", "r")
  image_url = My_file.read()
@@ -36,3 +37,4 @@ def debug():
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=81)
+
