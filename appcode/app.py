@@ -4,6 +4,7 @@ import socket
 import mysql.connector
 import os
 
+# Starting the code
 app = Flask(__name__)
 image_url = " "
 DB_Host = os.environ.get('DB_Host') or "localhost"
