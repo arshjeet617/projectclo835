@@ -18,7 +18,7 @@ spec:
       - name: flaskapp
         image: 728831723183.dkr.ecr.us-east-1.amazonaws.com/clo835final:v1.0
         ports:
-        - containerPort: 81
+        - containerPort: 82
         volumeMounts:
           - name: app-secret-volumes
             mountPath: "/opt/app-secret-volumes"
