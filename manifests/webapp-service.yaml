@@ -7,6 +7,6 @@ spec:
     name: flaskapp
   type: NodePort
   ports:
-  - port: 82
-    targetPort: 82
+  - port: 81
+    targetPort: 81
     nodePort: 30001
